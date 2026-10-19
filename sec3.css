@@ -1,0 +1,476 @@
+/* --- Global Styles --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: #ffffff;
+  color: #1a1a1a;
+  overflow-x: hidden;
+}
+
+
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: #ffffff;
+  color: #1a1a1a;
+  overflow-x: hidden;
+}
+
+.container {
+  width: 100%;
+  max-width: 1150px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* 1. See All Apps Section */
+.see-apps-section {
+  padding: 40px 0 20px 0;
+}
+
+.see-apps-link {
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: #634765;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: opacity 0.2s ease;
+}
+
+.see-apps-link:hover {
+  opacity: 0.8;
+}
+
+/* 2. Join 28 Million Users Section */
+.odoo-users-section {
+  padding: 40px 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.odoo-container {
+  position: relative;
+  width: 100%;
+  max-width: 1150px;
+  height: 480px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.central-box {
+  position: relative;
+  background: #ffffff;
+  padding: 40px 50px;
+  text-align: center;
+  z-index: 10;
+  border-radius: 20px;
+  max-width: 700px;
+}
+
+.main-title {
+  font-family: 'Caveat', cursive, sans-serif;
+  font-size: 4rem;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin: 0 0 8px 0;
+  letter-spacing: -1px;
+}
+
+.main-subtitle {
+  font-size: 1.2rem;
+  color: #2c2c2c;
+  font-weight: 400;
+}
+
+/* Happy Annotation and Curved Arrow */
+.happy-annotation {
+  position: absolute;
+  top: -22px;
+  right: 24%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.happy-text {
+  font-family: 'Caveat', cursive, sans-serif;
+  color: #f39c12;
+  font-size: 1.35rem;
+  font-weight: 700;
+  transform: rotate(-12deg);
+  margin-bottom: -6px;
+}
+
+.happy-arrow {
+  width: 70px;
+  height: 30px;
+}
+
+/* Absolute Positioning for Background Grid Elements */
+.grid-item {
+  position: absolute;
+  width: 62px;
+  height: 62px;
+  z-index: 2;
+}
+
+.grid-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 18px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
+}
+
+.avatar-1 { top: 4%; left: 14%; }
+.avatar-2 { top: 2%; left: 24%; }
+.shape-grey-1 { top: 12%; left: 37%; background: #e8ebed; border-radius: 18px; }
+.avatar-3 { top: 4%; left: 47%; }
+.shape-purple-1 { top: 6%; left: 58%; background: #634765; border-radius: 0 30px 30px 30px; }
+.shape-grey-2 { top: 12%; left: 68%; background: #e8ebed; border-radius: 18px; }
+.avatar-4 { top: 4%; left: 78%; }
+
+.avatar-5 { top: 42%; left: 3%; }
+.shape-purple-2 { top: 58%; left: 3%; background: #634765; border-radius: 30px 0 30px 30px; }
+
+.avatar-6 { bottom: 6%; left: 22%; }
+.avatar-7 { bottom: 4%; left: 35%; }
+.shape-grey-3 { bottom: 10%; left: 48%; background: #e8ebed; border-radius: 18px; }
+.avatar-8 { bottom: 6%; left: 58%; }
+.shape-purple-3 { bottom: 4%; left: 70%; background: #634765; border-radius: 30px 30px 0 30px; }
+
+
+/* 3. Testimonial Card Section */
+.testimonial-section {
+  padding: 40px 20px 80px 20px;
+}
+
+.testimonial-card {
+  background: #fdfdfd;
+  border: 1px solid #eaeaea;
+  border-radius: 16px;
+  padding: 45px 50px;
+  max-width: 900px;
+  margin: 0 auto;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
+  position: relative;
+}
+
+.quote-icon {
+  font-size: 3.5rem;
+  color: #fbc531;
+  line-height: 1;
+  margin-bottom: 10px;
+  font-family: serif;
+}
+
+.testimonial-text {
+  font-size: 1.2rem;
+  line-height: 1.6;
+  color: #333333;
+  margin-bottom: 25px;
+}
+
+.testimonial-author strong {
+  display: block;
+  font-size: 1rem;
+  color: #111111;
+}
+
+.testimonial-author span {
+  font-size: 0.9rem;
+  color: #666666;
+}
+
+
+/* 4. Unleash Your Growth Potential Section */
+.growth-cta-section {
+  padding: 80px 20px 100px 20px;
+  text-align: center;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.cta-title {
+  font-family: 'Caveat', cursive, sans-serif;
+  font-size: 5rem;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin-bottom: 30px;
+  line-height: 1.2;
+}
+
+.cta-highlight {
+  color: #10ac84; /* Vibrant teal/green style matching the reference */
+}
+
+.btn-start-now {
+  display: inline-block;
+  background-color: #634765;
+  color: #ffffff;
+  padding: 14px 36px;
+  border-radius: 8px;
+  font-size: 1.05rem;
+  font-weight: 600;
+  text-decoration: none;
+  box-shadow: 0 4px 12px rgba(99, 71, 101, 0.3);
+  transition: background-color 0.2s ease;
+}
+
+.btn-start-now:hover {
+  background-color: #523a54;
+}
+
+.trial-info {
+  margin-top: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #10ac84;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.trial-arrow {
+  font-size: 1.2rem;
+  line-height: 1;
+  margin-bottom: 2px;
+}
+
+.your {
+    color: black;
+}
+
+
+/* Responsive Design for Mobile Devices */
+@media (max-width: 768px) {
+  /* Hide background avatar/shape grid on mobile as requested */
+  .grid-item {
+    display: none;
+  }
+
+  .odoo-container {
+    height: auto;
+  }
+
+  .central-box {
+    padding: 20px;
+    width: 100%;
+  }
+
+  .main-title {
+    font-size: 2.8rem;
+  }
+
+  .main-subtitle {
+    font-size: 1.05rem;
+  }
+  
+  .happy-annotation {
+    right: 15%;
+    top: -28px;
+  }
+
+  .testimonial-card {
+    padding: 25px 20px;
+  }
+
+  .testimonial-text {
+    font-size: 1.05rem;
+  }
+
+  .cta-title {
+    font-size: 3rem;
+  }
+}
+
+/* --- Main Footer Layout --- */
+.footer {
+    background-color: #1a1a1f;
+    color: #a3a3a3;
+    padding: 50px 0 0 0;
+    font-size: 14px;
+}
+
+/* Central Odoo Logo at the Top */
+.logo {
+    text-align: center;
+    font-size: 36px;
+    font-weight: 700;
+    color: #ffffff;
+    letter-spacing: 2px;
+    margin-bottom: 50px;
+}
+
+/* Main Container Grid for Columns and Description */
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 0 40px;
+    gap: 30px;
+}
+
+/* --- Column Styles --- */
+.footer-column {
+    flex: 1;
+    min-width: 180px;
+}
+
+.footer-column h3 {
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+.footer-column .second-heading {
+    margin-top: 35px;
+}
+
+.footer-column ul {
+    list-style: none;
+}
+
+.footer-column ul li {
+    margin-bottom: 10px;
+}
+
+.footer-column ul li.space {
+    margin-top: 25px; /* Creates the spacing seen before Events and Legal */
+}
+
+.footer-column ul li a {
+    color: #a3a3a3;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.footer-column ul li a:hover {
+    color: #ffffff;
+}
+
+/* --- Right Description & Language Section --- */
+.footer-description {
+    flex: 1.4;
+    min-width: 280px;
+}
+
+/* Language Dropdown Styling */
+.language details {
+    position: relative;
+    width: max-content;
+}
+
+.language summary {
+    list-style: none;
+    background-color: #26262e;
+    color: #ffffff;
+    padding: 8px 14px;
+    border-radius: 4px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 14px;
+    border: 1px solid #33333d;
+}
+
+.language summary::-webkit-details-marker {
+    display: none;
+}
+
+.language-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #ffffff;
+    border: 1px solid #33333d;
+    border-radius: 4px;
+    list-style: none;
+    max-height: 220px;
+    overflow-y: auto;
+    width: 220px;
+    margin-top: 5px;
+    z-index: 10;
+    padding: 5px 0;
+}
+
+.language-menu li a {
+    display: block;
+    padding: 8px 15px;
+    color: #a3a3a3;
+    text-decoration: none;
+    font-size: 13px;
+}
+
+.language-menu li a:hover {
+    background-color: #2a2a35;
+    color: #ffffff;
+}
+
+.language-menu li.selected a {
+    color: #ffffff;
+    font-weight: 600;
+}
+
+/* Divider Line */
+.footer-description hr {
+    border: none;
+    border-top: 1px solid #33333d;
+    margin: 20px 0;
+}
+
+/* Description Paragraphs */
+.footer-description p {
+    color: #a3a3a3;
+    line-height: 1.5;
+    margin-bottom: 15px;
+}
+
+/* --- Social Icons --- */
+.social-icons {
+    display: flex;
+    gap: 18px;
+    margin-top: 25px;
+    margin-bottom: 40px;
+}
+
+.social-icons a {
+    color: #a3a3a3;
+    font-size: 16px;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.social-icons a:hover {
+    color: #ffffff;
+}
+
+/* --- Footer Bottom Bar --- */
+.footer-bottom {
+    background-color: #141418;
+    text-align: center;
+    padding: 20px 0;
+    font-size: 13px;
+    color: #77777f;
+    border-top: 1px solid #222228;
+}
+
+.footer-bottom strong {
+    color: #ffffff;
+    font-weight: 600;
+} 
