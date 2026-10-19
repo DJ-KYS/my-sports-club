@@ -1,0 +1,943 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sports Club | Odoo</title>
+
+    <style>
+        /* RESET */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            color: #242424;
+            background: #ffffff;
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        button {
+            cursor: pointer;
+            font-family: inherit;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        /* NAVBAR */
+        .navbar {
+            width: 100%;
+            min-height: 76px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 15px 6%;
+            border-bottom: 1px solid #eeeeee;
+            background: #ffffff;
+            position: relative;
+            z-index: 10;
+        }
+
+        .logo {
+            font-size: 30px;
+            font-weight: 800;
+            letter-spacing: -2px;
+            color: #714b67;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 27px;
+            list-style: none;
+            font-size: 14px;
+        }
+
+        .nav-links li {
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: #714b67;
+        }
+
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            min-width: 200px;
+            padding: 12px;
+            background: #ffffff;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+            border-radius: 8px;
+            list-style: none;
+        }
+
+        .dropdown-menu li {
+            padding: 9px;
+        }
+
+        .dropdown:hover .dropdown-menu {
+            display: block;
+        }
+
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 18px;
+            font-size: 14px;
+        }
+
+        .contact-link {
+            color: #714b67;
+            font-weight: bold;
+        }
+
+        .btn {
+            border: none;
+            border-radius: 5px;
+            padding: 12px 20px;
+            font-size: 14px;
+            font-weight: 600;
+            display: inline-block;
+            transition: 0.25s ease;
+        }
+
+        .btn-primary {
+            background: #714b67;
+            color: #ffffff;
+        }
+
+        .btn-primary:hover {
+            background: #58394f;
+            transform: translateY(-2px);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 1px solid #714b67;
+            color: #714b67;
+        }
+
+        .btn-outline:hover {
+            background: #f6eff4;
+        }
+
+        /* HERO */
+        .hero {
+            padding: 85px 6% 65px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            align-items: center;
+            gap: 65px;
+            background: #faf7f9;
+            min-height: 570px;
+        }
+
+        .hero-content {
+            max-width: 600px;
+        }
+
+        .eyebrow {
+            color: #714b67;
+            font-size: 14px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+        }
+
+        .hero h1 {
+            font-size: clamp(42px, 5vw, 70px);
+            line-height: 1.08;
+            letter-spacing: -2px;
+            margin-bottom: 25px;
+        }
+
+        .hero h1 span {
+            color: #714b67;
+        }
+
+        .hero p {
+            font-size: 17px;
+            color: #666666;
+            margin-bottom: 30px;
+            max-width: 490px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 14px;
+        }
+
+        .hero-image {
+            height: 400px;
+            border-radius: 15px;
+            overflow: hidden;
+            background: #e8dce5;
+        }
+
+        .hero-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* GENERAL SECTIONS */
+        .section {
+            padding: 85px 6%;
+        }
+
+        .section-heading {
+            max-width: 750px;
+            margin: 0 auto 50px;
+            text-align: center;
+        }
+
+        .section-heading h2 {
+            font-size: clamp(32px, 4vw, 48px);
+            line-height: 1.2;
+            letter-spacing: -1.3px;
+            margin-bottom: 18px;
+        }
+
+        .section-heading p {
+            color: #737373;
+            font-size: 16px;
+        }
+
+        /* BOOKING SECTION */
+        .booking-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 65px;
+            align-items: center;
+        }
+
+        .booking-image {
+            height: 390px;
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        .booking-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .booking-content h2 {
+            font-size: 43px;
+            line-height: 1.15;
+            margin-bottom: 22px;
+        }
+
+        .booking-content p {
+            color: #707070;
+            margin-bottom: 25px;
+        }
+
+        .booking-content h3 {
+            font-size: 21px;
+            margin-bottom: 10px;
+        }
+
+        /* GEAR SECTION */
+        .gear-section {
+            background: #f8f6f7;
+        }
+
+        .gear-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+
+        .gear-card {
+            background: #ffffff;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.04);
+        }
+
+        .gear-card img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+        }
+
+        .gear-card-content {
+            padding: 30px;
+        }
+
+        .gear-card h3 {
+            font-size: 25px;
+            margin-bottom: 12px;
+        }
+
+        .gear-card p {
+            color: #717171;
+            margin-bottom: 20px;
+        }
+
+        .text-link {
+            color: #714b67;
+            font-weight: bold;
+        }
+
+        /* POS SECTION */
+        .pos-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            align-items: center;
+            gap: 65px;
+        }
+
+        .pos-content h2 {
+            font-size: 44px;
+            line-height: 1.15;
+            margin-bottom: 22px;
+        }
+
+        .pos-content p {
+            color: #707070;
+            margin-bottom: 25px;
+        }
+
+        .pos-image {
+            height: 400px;
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        .pos-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* FEATURES */
+        .features-section {
+            background: #faf7f9;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .feature-card {
+            background: #ffffff;
+            border: 1px solid #eeeeee;
+            border-radius: 10px;
+            padding: 28px;
+            transition: 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.07);
+        }
+
+        .feature-icon {
+            width: 48px;
+            height: 48px;
+            background: #f2e7ef;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        .feature-card h3 {
+            font-size: 19px;
+            margin-bottom: 10px;
+        }
+
+        .feature-card p {
+            color: #737373;
+            font-size: 14px;
+        }
+
+        /* TESTIMONIAL */
+        .testimonial {
+            text-align: center;
+            padding: 80px 6%;
+            background: #714b67;
+            color: #ffffff;
+        }
+
+        .testimonial blockquote {
+            font-size: clamp(22px, 3vw, 35px);
+            line-height: 1.5;
+            max-width: 850px;
+            margin: 0 auto 25px;
+        }
+
+        .testimonial p {
+            color: #eadde6;
+        }
+
+        /* CTA */
+        .cta {
+            text-align: center;
+            padding: 85px 6%;
+        }
+
+        .cta h2 {
+            font-size: clamp(35px, 4vw, 50px);
+            margin-bottom: 18px;
+        }
+
+        .cta p {
+            color: #707070;
+            margin-bottom: 28px;
+        }
+
+        /* FOOTER */
+        footer {
+            padding: 55px 6% 25px;
+            background: #242124;
+            color: #ffffff;
+        }
+
+        .footer-top {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 35px;
+            padding-bottom: 35px;
+        }
+
+        .footer-brand h2 {
+            font-size: 30px;
+            color: #d5b4cb;
+            margin-bottom: 12px;
+        }
+
+        .footer-brand p {
+            max-width: 320px;
+            color: #c6c1c5;
+        }
+
+        .footer-links h3 {
+            font-size: 16px;
+            margin-bottom: 15px;
+        }
+
+        .footer-links a {
+            display: block;
+            color: #c6c1c5;
+            margin-bottom: 10px;
+            font-size: 14px;
+        }
+
+        .footer-links a:hover {
+            color: #ffffff;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #494449;
+            padding-top: 20px;
+            color: #c6c1c5;
+            font-size: 13px;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        /* TABLET */
+        @media (max-width: 1000px) {
+            .nav-links {
+                gap: 15px;
+            }
+
+            .navbar {
+                padding: 15px 4%;
+            }
+
+            .hero,
+            .booking-section,
+            .pos-section {
+                gap: 35px;
+            }
+
+            .features-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        /* MOBILE */
+        @media (max-width: 760px) {
+            .navbar {
+                flex-wrap: wrap;
+                gap: 15px;
+            }
+
+            .nav-links {
+                order: 3;
+                width: 100%;
+                flex-wrap: wrap;
+                gap: 15px;
+            }
+
+            .nav-actions {
+                gap: 10px;
+            }
+
+            .hero,
+            .booking-section,
+            .pos-section,
+            .gear-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero {
+                padding-top: 55px;
+            }
+
+            .hero-image {
+                height: 300px;
+            }
+
+            .booking-image,
+            .pos-image {
+                height: 300px;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .section {
+                padding: 60px 6%;
+            }
+
+            .booking-content h2,
+            .pos-content h2 {
+                font-size: 34px;
+            }
+
+            .footer-top {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVIGATION BAR -->
+    <header class="navbar">
+
+        <a href="#" class="logo">odoo</a>
+
+        <ul class="nav-links">
+            <li class="dropdown">
+                <a href="#">Apps⌄</a>
+                <ul class="dropdown-menu">
+                    <li><a href="#features">Appointments</a></li>
+                    <li><a href="#features">Website</a></li>
+                    <li><a href="#features">eCommerce</a></li>
+                    <li><a href="#features">Point of Sale</a></li>
+                </ul>
+            </li>
+
+            <li class="dropdown">
+                <a href="#">Industries⌄</a>
+                <ul class="dropdown-menu">
+                    <li><a href="#sports">Sports Clubs</a></li>
+                    <li><a href="#features">Fitness Centres</a></li>
+                    <li><a href="#features">Retail</a></li>
+                </ul>
+            </li>
+
+            <li><a href="#features">Community</a></li>
+            <li><a href="#about">Pricing</a></li>
+        </ul>
+
+        <div class="nav-actions">
+            <a href="#contact" class="contact-link">Contact us</a>
+            <a href="#contact" class="btn btn-primary">Try it free</a>
+        </div>
+
+    </header>
+
+
+    <!-- HERO SECTION -->
+    <main>
+
+        <section class="hero" id="sports">
+
+            <div class="hero-content">
+
+                <div class="eyebrow">Odoo for Sports Clubs</div>
+
+                <h1>
+                    The gold standard in managing
+                    <span>Sports Clubs</span>
+                </h1>
+
+                <p>
+                    Manage every aspect of your sports club in one place,
+                    from facility bookings and memberships to equipment
+                    rentals and online sales.
+                </p>
+
+                <div class="hero-buttons">
+                    <a href="#contact" class="btn btn-primary">
+                        Start now
+                    </a>
+
+                    <a href="#features" class="btn btn-outline">
+                        Explore features
+                    </a>
+                </div>
+
+            </div>
+
+            <div class="hero-image">
+                <img
+                    src="https://images.unsplash.com/photo-1552674605-db6ffd4facb5?auto=format&fit=crop&w=1200&q=85"
+                    alt="Athletes training at a sports club">
+            </div>
+
+        </section>
+
+
+        <!-- BOOKING SECTION -->
+        <section class="section">
+
+            <div class="booking-section">
+
+                <div class="booking-image">
+                    <img
+                        src="https://images.unsplash.com/photo-1554068865-24cecd4e34b8?auto=format&fit=crop&w=1000&q=85"
+                        alt="Tennis court for sports bookings">
+                </div>
+
+                <div class="booking-content">
+
+                    <div class="eyebrow">Appointments made easy</div>
+
+                    <h2>Score the perfect time slot every single time</h2>
+
+                    <p>
+                        Let customers book sports sessions online with
+                        just a few clicks. Organise court availability,
+                        coaching sessions and employee schedules from
+                        one central system.
+                    </p>
+
+                    <h3>Your game, your rules.</h3>
+
+                    <p>
+                        Create appointment types for courts, coaches
+                        and other resources while keeping your
+                        booking calendar organised.
+                    </p>
+
+                    <a href="#features" class="text-link">
+                        Discover booking features →
+                    </a>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- GEAR SECTION -->
+        <section class="section gear-section">
+
+            <div class="section-heading">
+
+                <div class="eyebrow">Grow your sports business</div>
+
+                <h2>Gear up for greatness</h2>
+
+                <p>
+                    Build your online presence and sell sports equipment
+                    with a connected website and eCommerce system.
+                </p>
+
+            </div>
+
+            <div class="gear-grid">
+
+                <article class="gear-card">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1461896836934-ffe607ba8211?auto=format&fit=crop&w=1000&q=85"
+                        alt="Athlete running on a track">
+
+                    <div class="gear-card-content">
+
+                        <h3>Your club, your website</h3>
+
+                        <p>
+                            Showcase your facilities, promote your
+                            activities and help customers discover
+                            everything your sports club offers.
+                        </p>
+
+                        <a href="#features" class="text-link">
+                            Build your website →
+                        </a>
+
+                    </div>
+
+                </article>
+
+
+                <article class="gear-card">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1517649763962-0c623066013b?auto=format&fit=crop&w=1000&q=85"
+                        alt="Sports bicycle and equipment">
+
+                    <div class="gear-card-content">
+
+                        <h3>Game-changing eCommerce</h3>
+
+                        <p>
+                            Sell equipment, accessories and branded
+                            merchandise online while managing your
+                            products and orders.
+                        </p>
+
+                        <a href="#features" class="text-link">
+                            Explore online sales →
+                        </a>
+
+                    </div>
+
+                </article>
+
+            </div>
+
+        </section>
+
+
+        <!-- POINT OF SALE SECTION -->
+        <section class="section">
+
+            <div class="pos-section">
+
+                <div class="pos-content">
+
+                    <div class="eyebrow">One connected system</div>
+
+                    <h2>Game on, drinks up!</h2>
+
+                    <p>
+                        Manage your clubhouse, sell refreshments,
+                        rent sports equipment and process customer
+                        purchases using an integrated point-of-sale
+                        system.
+                    </p>
+
+                    <p>
+                        Keep your sales, payments and product
+                        information organised in one place.
+                    </p>
+
+                    <a href="#features" class="btn btn-primary">
+                        Discover more
+                    </a>
+
+                </div>
+
+                <div class="pos-image">
+                    <img
+                        src="https://images.unsplash.com/photo-1517457373958-b7bdd4587205?auto=format&fit=crop&w=1000&q=85"
+                        alt="Clubhouse and hospitality area">
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- FEATURES SECTION -->
+        <section class="section features-section" id="features">
+
+            <div class="section-heading">
+
+                <div class="eyebrow">Everything in one place</div>
+
+                <h2>All the features, done right.</h2>
+
+                <p>
+                    Manage the everyday activities of your club with
+                    tools designed to simplify bookings, sales
+                    and customer relationships.
+                </p>
+
+            </div>
+
+
+            <div class="features-grid">
+
+                <article class="feature-card">
+                    <div class="feature-icon">🎟️</div>
+                    <h3>Subscriptions</h3>
+                    <p>
+                        Sell club passes, memberships and recurring
+                        subscription plans.
+                    </p>
+                </article>
+
+                <article class="feature-card">
+                    <div class="feature-icon">📅</div>
+                    <h3>Manage time with ease</h3>
+                    <p>
+                        Organise employee schedules, court availability
+                        and other club resources.
+                    </p>
+                </article>
+
+                <article class="feature-card">
+                    <div class="feature-icon">🤝</div>
+                    <h3>Leads and opportunities</h3>
+                    <p>
+                        Keep track of prospective members and
+                        customer enquiries.
+                    </p>
+                </article>
+
+                <article class="feature-card">
+                    <div class="feature-icon">🏸</div>
+                    <h3>Equipment rental</h3>
+                    <p>
+                        Manage equipment rentals and keep your
+                        sports inventory organised.
+                    </p>
+                </article>
+
+                <article class="feature-card">
+                    <div class="feature-icon">💳</div>
+                    <h3>Payment methods</h3>
+                    <p>
+                        Organise customer payments for memberships,
+                        rentals and products.
+                    </p>
+                </article>
+
+                <article class="feature-card">
+                    <div class="feature-icon">🛍️</div>
+                    <h3>Click and collect</h3>
+                    <p>
+                        Let customers place orders online and
+                        collect them directly from your club.
+                    </p>
+                </article>
+
+            </div>
+
+        </section>
+
+
+        <!-- TESTIMONIAL -->
+        <section class="testimonial">
+
+            <blockquote>
+                "Everything is in one system. If you want your
+                business to grow, the right tools can make all
+                the difference."
+            </blockquote>
+
+            <p>Sports club management made easier</p>
+
+        </section>
+
+
+        <!-- CALL TO ACTION -->
+        <section class="cta" id="about">
+
+            <div class="eyebrow">Ready to get started?</div>
+
+            <h2>Unleash your growth potential</h2>
+
+            <p>
+                Bring your sports club operations together
+                with one connected business platform.
+            </p>
+
+            <a href="#contact" class="btn btn-primary">
+                Start now
+            </a>
+
+        </section>
+
+    </main>
+
+
+    <!-- FOOTER -->
+    <footer id="contact">
+
+        <div class="footer-top">
+
+            <div class="footer-brand">
+                <h2>odoo</h2>
+
+                <p>
+                    A connected platform for managing sports
+                    club activities, customers, bookings
+                    and sales.
+                </p>
+            </div>
+
+            <div class="footer-links">
+                <h3>Discover</h3>
+                <a href="#sports">Sports Clubs</a>
+                <a href="#features">Features</a>
+                <a href="#about">About</a>
+            </div>
+
+            <div class="footer-links">
+                <h3>Solutions</h3>
+                <a href="#features">Appointments</a>
+                <a href="#features">Memberships</a>
+                <a href="#features">Online Sales</a>
+            </div>
+
+            <div class="footer-links">
+                <h3>Get started</h3>
+                <a href="#contact">Contact us</a>
+                <a href="#about">Start now</a>
+            </div>
+
+        </div>
+
+        <div class="footer-bottom">
+
+            <p>© 2026 Sports Club Website Recreation</p>
+
+            <p>Designed with HTML and CSS</p>
+
+        </div>
+
+    </footer>
+
+</body>
+</html>

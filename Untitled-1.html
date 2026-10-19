@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sports Club | Industry | Odoo</title>
+   <style>
+    /* ==========================================
+   Base Reset & Setup
+   ========================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+body {
+    background-color: #f8f9fa;
+    color: #212529;
+}
+
+/* ==========================================
+   Header & Navbar Desktop Layout
+   ========================================== */
+.site-header {
+    background-color: #ffffff;
+    border-bottom: 1px solid #e9ecef;
+    padding: 15px 0;
+    position: relative;
+    z-index: 1000;
+}
+
+.nav-container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-left {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+/* Logo Image Styling */
+.logo-link {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+}
+
+.logo-img {
+    height: 24px;
+    width: auto;
+    object-fit: contain;
+}
+
+/* Dropdown Trigger Button */
+.dropdown-wrapper {
+    position: relative;
+}
+
+.dropdown-btn {
+    background: none;
+    border: none;
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: #495057;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 4px 0;
+}
+
+.dropdown-btn i {
+    font-size: 0.7rem;
+    color: #6c757d;
+}
+
+/* ==========================================
+   Mega Dropdown Menu Panel
+   ========================================== */
+.mega-dropdown {
+    position: absolute;
+    top: 45px;
+    left: -150px;
+    background: #ffffff;
+    border: 1px solid #dee2e6;
+    border-radius: 8px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+    width: 1040px;
+    padding: 35px;
+    display: block;
+}
+
+/* 4-Column Grid layout for categories[cite: 3] */
+.dropdown-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 25px 35px;
+}
+
+.category-col h3 {
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.6px;
+    color: #d9534f;
+    margin-bottom: 12px;
+}
+
+.category-col ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.category-col ul li a {
+    text-decoration: none;
+    color: #495057;
+    font-size: 0.88rem;
+    transition: color 0.15s ease;
+}
+
+.category-col ul li a:hover {
+    color: #714B67; /* Odoo Purple */
+}
+
+/* Highlighted Column matching Health & Fitness[cite: 3] */
+.highlight-box {
+    background-color: #fcf4f2;
+    padding: 14px;
+    border-radius: 6px;
+    margin: -14px;
+}
+
+.active-item {
+    font-weight: 600;
+    color: #212529 !important;
+}
+
+/* Dropdown Footer Browse Link[cite: 3] */
+.dropdown-footer {
+    margin-top: 30px;
+    padding-top: 18px;
+    border-top: 1px solid #f1f3f5;
+    text-align: center;
+}
+
+.dropdown-footer a {
+    text-decoration: none;
+    color: #714B67;
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+.dropdown-footer a:hover {
+    text-decoration: underline;
+}
+
+/* ==========================================
+   Right Side Navigation Items
+   ========================================== */
+.nav-right {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+.nav-link {
+    text-decoration: none;
+    color: #495057;
+    font-size: 0.95rem;
+    transition: color 0.2s;
+}
+
+.nav-link:hover {
+    color: #714B67;
+}
+
+.btn-try {
+    background-color: #714B67; /* Odoo Purple */
+    color: #ffffff;
+    padding: 9px 20px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 600;
+    transition: background-color 0.2s;
+}
+
+.btn-try:hover {
+    background-color: #5a3b52;
+}
+   </style>
+</head>
+<body>
+
+    <!-- Header / Navigation Bar -->
+    <header class="site-header">
+        <div class="nav-container">
+            
+            <!-- Left Side: Logo (Image) & Dropdown Menu[cite: 3] -->
+            <div class="nav-left">
+                <a href="https://www.odoo.com" class="logo-link">
+                    <img src="https://www.odoo.com/web/binary/company_logo" alt="Odoo Logo" class="logo-img">
+                </a>
+                
+                <div class="dropdown-wrapper">
+                    <button class="dropdown-btn">
+                        Sports Club <i class="fa-solid fa-angle-down"></i>
+                    </button>
+
+                    <!-- Mega Dropdown Menu Panel[cite: 3] -->
+                    <div class="mega-dropdown">
+                        <div class="dropdown-grid">
+                            
+                            <!-- Column 1: Retail -->
+                            <div class="category-col">
+                                <h3>RETAIL</h3>
+                                <ul>
+                                    <li><a href="#">Book Store</a></li>
+                                    <li><a href="#">Clothing Store</a></li>
+                                    <li><a href="#">Furniture Store</a></li>
+                                    <li><a href="#">Grocery Store</a></li>
+                                    <li><a href="#">Hardware Store</a></li>
+                                    <li><a href="#">Toy Store</a></li>
+                                </ul>
+                            </div>
+
+                            <!-- Column 2: Food & Hospitality -->
+                            <div class="category-col">
+                                <h3>FOOD & HOSPITALITY</h3>
+                                <ul>
+                                    <li><a href="#">Bar and Pub</a></li>
+                                    <li><a href="#">Restaurant</a></li>
+                                    <li><a href="#">Fast Food</a></li>
+                                    <li><a href="#">Guest House</a></li>
+                                    <li><a href="#">Beverage Distributor</a></li>
+                                    <li><a href="#">Hotel</a></li>
+                                </ul>
+                            </div>
+
+                            <!-- Column 3: Real Estate -->
+                            <div class="category-col">
+                                <h3>REAL ESTATE</h3>
+                                <ul>
+                                    <li><a href="#">Real Estate Agency</a></li>
+                                    <li><a href="#">Architecture Firm</a></li>
+                                    <li><a href="#">Construction</a></li>
+                                    <li><a href="#">Property Management</a></li>
+                                    <li><a href="#">Gardening</a></li>
+                                    <li><a href="#">Property Owner Association</a></li>
+                                </ul>
+                            </div>
+
+                            <!-- Column 4: Consulting -->
+                            <div class="category-col">
+                                <h3>CONSULTING</h3>
+                                <ul>
+                                    <li><a href="#">Accounting Firm</a></li>
+                                    <li><a href="#">Odoo Partner</a></li>
+                                    <li><a href="#">Marketing Agency</a></li>
+                                    <li><a href="#">Law firm</a></li>
+                                    <li><a href="#">Talent Acquisition</a></li>
+                                    <li><a href="#">Audit & Certification</a></li>
+                                </ul>
+                            </div>
+
+                            <!-- Column 5: Manufacturing -->
+                            <div class="category-col">
+                                <h3>MANUFACTURING</h3>
+                                <ul>
+                                    <li><a href="#">Textile</a></li>
+                                    <li><a href="#">Metal</a></li>
+                                    <li><a href="#">Furnitures</a></li>
+                                    <li><a href="#">Food</a></li>
+                                    <li><a href="#">Brewery</a></li>
+                                    <li><a href="#">Corporate Gifts</a></li>
+                                </ul>
+                            </div>
+
+                            <!-- Column 6: Health & Fitness (Highlighted Active Category)[cite: 3] -->
+                            <div class="category-col highlight-box">
+                                <h3>HEALTH & FITNESS</h3>
+                                <ul>
+                                    <li><a href="#" class="active-item">Sports Club</a></li>
+                                    <li><a href="#">Eyewear Store</a></li>
+                                    <li><a href="#">Fitness Center</a></li>
+                                    <li><a href="#">Wellness Practitioners</a></li>
+                                    <li><a href="#">Pharmacy</a></li>
+                                    <li><a href="#">Hair Salon</a></li>
+                                </ul>
+                            </div>
+
+                            <!-- Column 7: Trades -->
+                            <div class="category-col">
+                                <h3>TRADES</h3>
+                                <ul>
+                                    <li><a href="#">Handyman</a></li>
+                                    <li><a href="#">IT Hardware & Support</a></li>
+                                    <li><a href="#">Solar Energy Systems</a></li>
+                                    <li><a href="#">Electronic Store</a></li>
+                                    <li><a href="#">Cleaning Services</a></li>
+                                    <li><a href="#">HVAC Services</a></li>
+                                </ul>
+                            </div>
+
+                            <!-- Column 8: Others -->
+                            <div class="category-col">
+                                <h3>OTHERS</h3>
+                                <ul>
+                                    <li><a href="#">Nonprofit Organization</a></li>
+                                    <li><a href="#">Environmental Agency</a></li>
+                                    <li><a href="#">Billboard Rental</a></li>
+                                    <li><a href="#">Photography</a></li>
+                                    <li><a href="#">Bike Leasing</a></li>
+                                    <li><a href="#">Software Reseller</a></li>
+                                </ul>
+                            </div>
+
+                        </div>
+
+                        <!-- Dropdown Footer[cite: 3] -->
+                        <div class="dropdown-footer">
+                            <a href="#">Browse all Industries &rarr;</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Side: Navigation Links & Buttons[cite: 3] -->
+            <div class="nav-right">
+                <a href="#" class="nav-link">Overview</a>
+                <a href="#" class="nav-link">Features</a>
+                <a href="#" class="nav-link">Sign in</a>
+                <a href="#" class="btn-try">Try it free</a>
+            </div>
+
+        </div>
+    </header>
+
+</body>
+</html>
