@@ -1,0 +1,280 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+}
+
+.top{
+    
+}
+.game-section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #e9f7f9;
+    padding: 70px 7%;
+    min-height: 500px;
+    gap: 40px;
+    overflow: hidden;
+}
+
+.game-content {
+    width: 55%;
+}
+
+.game-content h1 {
+    font-family: cursive;
+    font-size: 58px;
+    font-weight: bold;
+    color: #071b48;
+    margin-bottom: 55px;
+}
+
+.game-content p {
+    font-size: 25px;
+    line-height: 1.7;
+    color: #23466a;
+    max-width: 680px;
+}
+
+.game-content p strong {
+    font-weight: bold;
+}
+
+.game-image {
+    width: 48%;
+    align-self: flex-end;
+    margin-right: -7%;
+    margin-bottom: -70px;
+}
+
+.game-image img {
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+}
+.* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    color: #25243f;
+    background-color: #fff;
+}
+
+/* SECTION 1 */
+.features-section {
+    padding: 70px 5%;
+    background-color: #fff;
+}
+
+.main-heading {
+    font-family: cursive;
+    font-size: 55px;
+    font-weight: 500;
+    font-style: italic;
+    line-height: 1.2;
+    margin-bottom: 70px;
+}
+
+.circle-text {
+    position: relative;
+    display: inline-block;
+}
+
+.circle-text::after {
+    content: "";
+    position: absolute;
+    width: 110%;
+    height: 80%;
+    top: 8%;
+    left: -5%;
+    border: 5px solid #24c4c4;
+    border-radius: 50%;
+    transform: rotate(-8deg);
+}
+
+.underline-text {
+    position: relative;
+    display: inline-block;
+}
+
+.underline-text::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background-color: #24c4c4;
+    border-radius: 5px;
+}
+
+/* FEATURE CARDS */
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 30px;
+}
+
+.feature-card {
+    background-color: #f7f6f1;
+    border: 1px solid #e6e5e0;
+    border-radius: 15px;
+    padding: 35px 40px;
+    min-height: 170px;
+    transition: transform 0.3s ease,
+                box-shadow 0.3s ease;
+}
+
+.feature-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+}
+
+.feature-card h3 {
+    font-size: 25px;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+.feature-card p {
+    font-size: 19px;
+    line-height: 1.6;
+    color: #444;
+}
+
+/* SEE ALL FEATURES LINK */
+.see-features {
+    display: inline-flex;
+    align-items: center;
+    gap: 25px;
+    margin-top: 45px;
+    color: #25243f;
+    font-family: cursive;
+    font-size: 27px;
+    font-style: italic;
+    text-decoration: none;
+}
+
+.see-features span {
+    font-family: Arial, sans-serif;
+    font-size: 40px;
+    transition: transform 0.3s ease;
+}
+
+.see-features:hover span {
+    transform: translateX(8px);
+}
+
+/* SECTION 2: ONE NEED, ONE APP */
+.apps-section {
+    padding: 70px 5% 100px;
+    background-color: #fff;
+}
+
+.apps-heading {
+    font-family: cursive;
+    font-size: 55px;
+    font-weight: 500;
+    font-style: italic;
+    margin-bottom: 20px;
+}
+
+.apps-heading span {
+    position: relative;
+}
+
+.apps-heading span::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 5px;
+    background-color: #24c4c4;
+    border-radius: 5px;
+}
+
+.apps-subtitle {
+    font-size: 27px;
+    color: #666;
+    margin-bottom: 65px;
+}
+
+/* APP ITEMS GRID */
+.apps-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    column-gap: 35px;
+    row-gap: 55px;
+}
+
+.app-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+}
+
+.app-icon {
+    width: 60px;
+    height: 60px;
+    min-width: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 12px;
+    font-size: 35px;
+    font-weight: bold;
+}
+
+.subscriptions-icon {
+    color: #20aaa9;
+    background-color: #f2f6ef;
+}
+
+.pos-icon {
+    color: #7953a5;
+    background-color: #f4edf7;
+}
+
+.planning-icon {
+    color: #16aeb5;
+    background-color: #e8f6f4;
+}
+
+.invoicing-icon {
+    color: #fff;
+    background-color: #159db9;
+}
+
+.appointments-icon {
+    color: #7050a5;
+    background-color: #f2edf8;
+}
+
+.social-icon {
+    color: #d879a5;
+    background-color: #fbecf1;
+}
+
+.app-item h3 {
+    font-size: 21px;
+    margin-bottom: 8px;
+    font-weight: 600;
+}
+
+.app-item p {
+    font-size: 16px;
+    color: #777;
+    line-height: 1.5;
+}
